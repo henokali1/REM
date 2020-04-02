@@ -86,5 +86,5 @@ function off_clicked(){
 }
 
 function snd_msg(btn_clicked){
-  console.log(btn_clicked);
+  send(btn_clicked);
 }
