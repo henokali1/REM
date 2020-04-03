@@ -56,33 +56,38 @@
     />
     <link href="assets/css/normalize.css" rel="stylesheet" />
     <link href="assets/css/styles.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <style>
-        .btn-circle.btn-xl {
-    width: 70px;
-    height: 70px;
-    padding: 10px 16px;
-    border-radius: 35px;
-    font-size: 24px;
-    line-height: 1.33;
-}
-
-.btn-circle {
-    width: 30px;
-    height: 30px;
-    padding: 6px 0px;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 1.42857;
-}
+        .btn-circle.btn-sm { 
+            width: 30px; 
+            height: 30px; 
+            padding: 6px 0px; 
+            border-radius: 15px; 
+            font-size: 8px; 
+            text-align: center; 
+        } 
+        .btn-circle.btn-md { 
+            width: 50px; 
+            height: 50px; 
+            padding: 7px 10px; 
+            border-radius: 25px; 
+            font-size: 10px; 
+            text-align: center; 
+        } 
+        .btn-circle.btn-xl { 
+            width: 70px; 
+            height: 70px; 
+            padding: 10px 16px; 
+            border-radius: 35px; 
+            font-size: 12px; 
+            text-align: center; 
+        } 
 
     </style>
   </head>
@@ -103,10 +108,11 @@
       </div>
 
       <div id="terminal" style="display:none" class="terminal"></div>
-
+      
       <div class="container">
         <center><h2>Remote</h2></center>
 
+    </div>
         <ul class="nav nav-tabs">
           <li class="active"><a data-toggle="tab" href="#home">Sat</a></li>
           <li><a data-toggle="tab" href="#menu1">TV</a></li>
@@ -115,32 +121,36 @@
 
         <div class="tab-content">
           <div id="home" class="tab-pane fade in active">
-            <center><h3>SAT</h3></center>
-            <div class="d-flex justify-content-between">
-                <button style="background-color: #d9534f;" onclick="snd_msg(`POWER`)">POWER</button>
-                <button style="background-color: #857b7a;" onclick="snd_msg(`REC`)">REC</button>
-                <button style="background-color: #857b7a;" onclick="snd_msg(`MUTE`)">MUTE</button>
-                <button style="background-color: #857b7a;" onclick="snd_msg(`EPG`)">EPG</button>
+            
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <h3>TV</h3>
+            <p>
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            <h3>SHORTCUTS</h3>
+          </div>
+        </div>
+
+        <center><h3>SAT</h3></center>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #d9534f;" onclick="snd_msg(`POWER`)">POWER</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`REC`)">REC</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`MUTE`)">MUTE</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`EPG`)">EPG</button>
+            </div>
+
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`EPG`)">EPG</button>
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`P_PLUS`)">P+</button>
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`TTX`)">TTX</button>
+            </div>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`INFO`)">INFO</button>
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`UP`)">UP</button>
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`EXIT`)">EXIT</button>
             </div>
             <div class="row">
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`POWER`)">POWER</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`REC`)">REC</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`MUTE`)">MUTE</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`EPG`)">EPG</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`P_PLUS`)">P_PLUS</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`TTX`)">TTX</button>
-              </div>
               <div class="col-sm-3">
                 <button onclick="snd_msg(`INFO`)">INFO</button>
               </div>
@@ -241,23 +251,6 @@
                 <button onclick="snd_msg(`BLUE`)">BLUE</button>
               </div>
             </div>
-          </div>
-          <div id="menu1" class="tab-pane fade">
-            <h3>Menu 1</h3>
-            <p>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </p>
-          </div>
-          <div id="menu2" class="tab-pane fade">
-            <h3>Menu 2</h3>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
     <script src="assets/js/BluetoothTerminal.js"></script>
     <script src="assets/js/main.js"></script>
