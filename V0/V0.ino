@@ -162,7 +162,7 @@ void send_ir(String btn_val){
   } else {
     Serial.println("unknown");
   }
-  delay(500);
+  delay(100);
 }
 void loop() {
   while(SerialBt.available()) {
