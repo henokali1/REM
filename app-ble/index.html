@@ -60,8 +60,31 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+    </style>
   </head>
   <body>
     <div class="app">
@@ -93,6 +116,12 @@
         <div class="tab-content">
           <div id="home" class="tab-pane fade in active">
             <center><h3>SAT</h3></center>
+            <div class="d-flex justify-content-center">
+                <button onclick="snd_msg(`POWER`)" type="button" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-power-off"></i></button>
+                <button onclick="snd_msg(`REC`)" type="button" class="btn btn-default btn-circle btn-lg">REC</button>
+                <button onclick="snd_msg(`MUTE`)" type="button" class="btn btn-default btn-circle btn-lg">MUTE</button>
+                <button onclick="snd_msg(`EPG`)" type="button" class="btn btn-default btn-circle btn-lg">EPG</button>
+            </div>
             <div class="row">
               <div class="col-sm-3">
                 <button onclick="snd_msg(`POWER`)">POWER</button>
