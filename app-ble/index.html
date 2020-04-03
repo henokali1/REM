@@ -1,104 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="msapplication-TileColor" content="#2196f3">
-    <meta name="msapplication-config" content="browserconfig.xml">
-    <meta name="theme-color" content="#2196f3">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="msapplication-starturl" content="./">
-    <meta name="description"
-          content="Progressive Web Application for serial communication with your own Bluetooth Low Energy (Smart) devices">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="msapplication-TileColor" content="#2196f3" />
+    <meta name="msapplication-config" content="browserconfig.xml" />
+    <meta name="theme-color" content="#2196f3" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-starturl" content="./" />
+    <meta
+      name="description"
+      content="Progressive Web Application for serial communication with your own Bluetooth Low Energy (Smart) devices"
+    />
 
     <title>Web Bluetooth Terminal</title>
 
     <script src="/assets/js/app.js"></script>
     <script src="/assets/js/ui.js"></script>
-    <link rel="manifest" href="/manifest.json">
-    <link rel="apple-touch-icon" href="/assets/images/logo-96x96.png">
-    <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
-    <meta name="theme-color" content="#FFE1C4">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#2196f3">
-    <link rel="shortcut icon" href="icons/favicon.ico">
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/assets/images/logo-96x96.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4" />
+    <meta name="theme-color" content="#FFE1C4" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="icons/favicon-16x16.png"
+    />
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#2196f3" />
+    <link rel="shortcut icon" href="icons/favicon.ico" />
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="assets/css/normalize.css" rel="stylesheet">
-    <link href="assets/css/styles.css" rel="stylesheet">
-
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link href="assets/css/normalize.css" rel="stylesheet" />
+    <link href="assets/css/styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
     <div class="app">
-        <div class="toolbar">
+      <div class="toolbar">
+        <div id="device-name" class="name">Terminal</div>
 
-            <div id="device-name" class="name">Terminal</div>
+        <div class="buttons">
+          <button id="connect" type="button" aria-label="Connect">
+            <i class="material-icons">bluetooth_connected</i>
+          </button>
 
-            <div class="buttons">
-
-                <button id="connect" type="button" aria-label="Connect">
-                    <i class="material-icons">bluetooth_connected</i>
-                </button>
-
-                <button id="disconnect" type="button" aria-label="Disconnect">
-                    <i class="material-icons">bluetooth_disabled</i>
-                </button>
-
-            </div>
-
+          <button id="disconnect" type="button" aria-label="Disconnect">
+            <i class="material-icons">bluetooth_disabled</i>
+          </button>
         </div>
+      </div>
 
-        <div id="terminal" style="display:none" class="terminal"></div>
+      <div id="terminal" style="display:none" class="terminal"></div>
 
-      <button onclick="snd_msg(`POWER`)">POWER</button>
-      <button onclick="snd_msg(`REC`)">REC</button>
-      <button onclick="snd_msg(`MUTE`)">MUTE</button>
-      <button onclick="snd_msg(`EPG`)">EPG</button>
-      <button onclick="snd_msg(`P_PLUS`)">P_PLUS</button>
-      <button onclick="snd_msg(`TTX`)">TTX</button>
-      <button onclick="snd_msg(`INFO`)">INFO</button>
-      <button onclick="snd_msg(`UP`)">UP</button>
-      <button onclick="snd_msg(`EXIT`)">EXIT</button>
-      <button onclick="snd_msg(`V_MINUS`)">V_MINUS</button>
-      <button onclick="snd_msg(`OK`)">OK</button>
-      <button onclick="snd_msg(`V_PLUS`)">V_PLUS</button>
-      <button onclick="snd_msg(`DOWN`)">DOWN</button>
-      <button onclick="snd_msg(`FAV`)">FAV</button>
-      <button onclick="snd_msg(`TV_RADIO`)">TV_RADIO</button>
-      <button onclick="snd_msg(`ONE`)">ONE</button>
-      <button onclick="snd_msg(`TWO`)">TWO</button>
-      <button onclick="snd_msg(`THREE`)">THREE</button>
-      <button onclick="snd_msg(`FOUR`)">FOUR</button>
-      <button onclick="snd_msg(`FIVE`)">FIVE</button>
-      <button onclick="snd_msg(`SIX`)">SIX</button>
-      <button onclick="snd_msg(`SEVEN`)">SEVEN</button>
-      <button onclick="snd_msg(`EIGHT`)">EIGHT</button>
-      <button onclick="snd_msg(`NINE`)">NINE</button>
-      <button onclick="snd_msg(`ZERO`)">ZERO</button>
-      <button onclick="snd_msg(`RECALL`)">RECALL</button>
-      <button onclick="snd_msg(`SAT`)">SAT</button>
-      <button onclick="snd_msg(`REV`)">REV</button>
-      <button onclick="snd_msg(`FWD`)">FWD</button>
-      <button onclick="snd_msg(`PREV`)">PREV</button>
-      <button onclick="snd_msg(`NEXT`)">NEXT</button>
-      <button onclick="snd_msg(`PLAY`)">PLAY</button>
-      <button onclick="snd_msg(`PAUSE`)">PAUSE</button>
-      <button onclick="snd_msg(`STOP`)">STOP</button>
-      <button onclick="snd_msg(`AUDIO`)">AUDIO</button>
-      <button onclick="snd_msg(`RED`)">RED</button>
-      <button onclick="snd_msg(`GREEN`)">GREEN</button>
-      <button onclick="snd_msg(`YELLOW`)">YELLOW</button>
-      <button onclick="snd_msg(`BLUE`)">BLUE</button>
-      
+      <div class="container">
+        <center><h2>Remote</h2></center>
 
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">Sat</a></li>
+          <li><a data-toggle="tab" href="#menu1">TV</a></li>
+          <li><a data-toggle="tab" href="#menu2">SHORTCUTS</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <center><h3>SAT</h3></center>
+            <div class="row">
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`POWER`)">POWER</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`REC`)">REC</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`MUTE`)">MUTE</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`EPG`)">EPG</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`P_PLUS`)">P_PLUS</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`TTX`)">TTX</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`INFO`)">INFO</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`UP`)">UP</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`EXIT`)">EXIT</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`V_MINUS`)">V_MINUS</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`OK`)">OK</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`V_PLUS`)">V_PLUS</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`DOWN`)">DOWN</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`FAV`)">FAV</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`TV_RADIO`)">TV_RADIO</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`ONE`)">ONE</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`TWO`)">TWO</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`THREE`)">THREE</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`FOUR`)">FOUR</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`FIVE`)">FIVE</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`SIX`)">SIX</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`SEVEN`)">SEVEN</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`EIGHT`)">EIGHT</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`NINE`)">NINE</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`ZERO`)">ZERO</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`RECALL`)">RECALL</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`SAT`)">SAT</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`REV`)">REV</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`FWD`)">FWD</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`PREV`)">PREV</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`NEXT`)">NEXT</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`PLAY`)">PLAY</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`PAUSE`)">PAUSE</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`STOP`)">STOP</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`AUDIO`)">AUDIO</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`RED`)">RED</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`GREEN`)">GREEN</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`YELLOW`)">YELLOW</button>
+              </div>
+              <div class="col-sm-3">
+                <button onclick="snd_msg(`BLUE`)">BLUE</button>
+              </div>
+            </div>
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            <p>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="assets/js/BluetoothTerminal.js"></script>
     <script src="assets/js/main.js"></script>
-</body>
+  </body>
 </html>
