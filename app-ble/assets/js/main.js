@@ -87,4 +87,5 @@ function off_clicked(){
 
 function snd_msg(btn_clicked){
   send(btn_clicked);
+  window.navigator.vibrate([200, 100, 200]);
 }
