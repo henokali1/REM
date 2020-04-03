@@ -19,7 +19,16 @@
 
 
 #include <IRremote.h>
+#include <SoftwareSerial.h>
 
+// Yellow - 7
+// L/Orange - 6
+// Orange - VCC 
+// BROWN - GND
+SoftwareSerial SerialBt(7, 6);
+
+char incoming;
+String btn = "";
 IRsend irsend;
 
 const unsigned long POWER = 0xFD9A65;
@@ -64,14 +73,106 @@ const unsigned long BLUE = 0xFDC03F;
 
 void setup()
 {
-
+	Serial.begin(9600);
+	SerialBt.begin(9600);
 }
 
-void loop() {
-  int khz = 38; // 38kHz carrier frequency for the NEC protocol
-  unsigned int volUp[] = {9000, 4500, 560, 560, 560, 560, 560, 1690, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 1690, 560, 1690, 560, 560, 560, 1690, 560, 1690, 560, 1690, 560, 1690, 560, 1690, 560, 560, 560, 560, 560, 560, 560, 1690, 560, 560, 560, 560, 560, 560, 560, 560, 560, 1690, 560, 1690, 560, 1690, 560, 560, 560, 1690, 560, 1690, 560, 1690, 560, 1690, 560, 39416, 9000, 2210, 560}; //AnalysIR Batch Export (IRremote) - RAW
+void send_ir(String btn_val){
+  //  irsend.sendNEC(0xFDD827, 32);
   
-  //irsend.sendRaw(volUp, sizeof(volUp) / sizeof(volUp[0]), khz); //Note the approach used to automatically calculate the size of the array.
-  irsend.sendNEC(0xFDD827, 32);
-  delay(2000); //In this example, the signal will be repeated every 5 seconds, approximately.
+
+  if(btn_val.equals("POWER")){
+    irsend.sendNEC(POWER, 32);
+  } else if(btn_val.equals("REC")) {
+    irsend.sendNEC(REC, 32);
+  } else if(btn_val.equals("MUTE")) {
+    irsend.sendNEC(MUTE, 32);
+  } else if(btn_val.equals("EPG")) {
+    irsend.sendNEC(EPG, 32);
+  } else if(btn_val.equals("P_PLUS")) {
+    irsend.sendNEC(P_PLUS, 32);
+  } else if(btn_val.equals("TTX")) {
+    irsend.sendNEC(TTX, 32);
+  } else if(btn_val.equals("INFO")) {
+    irsend.sendNEC(INFO, 32);
+  } else if(btn_val.equals("UP")) {
+    irsend.sendNEC(UP, 32);
+  } else if(btn_val.equals("EXIT")) {
+    irsend.sendNEC(EXIT, 32);
+  } else if(btn_val.equals("V_MINUS")) {
+    irsend.sendNEC(V_MINUS, 32);
+  } else if(btn_val.equals("OK")) {
+    irsend.sendNEC(OK, 32);
+  } else if(btn_val.equals("V_PLUS")) {
+    irsend.sendNEC(V_PLUS, 32);
+  } else if(btn_val.equals("DOWN")) {
+    irsend.sendNEC(DOWN, 32);
+  } else if(btn_val.equals("FAV")) {
+    irsend.sendNEC(FAV, 32);
+  } else if(btn_val.equals("TV_RADIO")) {
+    irsend.sendNEC(TV_RADIO, 32);
+  } else if(btn_val.equals("ONE")) {
+    irsend.sendNEC(ONE, 32);
+  } else if(btn_val.equals("TWO")) {
+    irsend.sendNEC(TWO, 32);
+  } else if(btn_val.equals("THREE")) {
+    irsend.sendNEC(THREE, 32);
+  } else if(btn_val.equals("FOUR")) {
+    irsend.sendNEC(FOUR, 32);
+  } else if(btn_val.equals("FIVE")) {
+    irsend.sendNEC(FIVE, 32);
+  } else if(btn_val.equals("SIX")) {
+    irsend.sendNEC(SIX, 32);
+  } else if(btn_val.equals("SEVEN")) {
+    irsend.sendNEC(SEVEN, 32);
+  } else if(btn_val.equals("EIGHT")) {
+    irsend.sendNEC(EIGHT, 32);
+  } else if(btn_val.equals("NINE")) {
+    irsend.sendNEC(NINE, 32);
+  } else if(btn_val.equals("ZERO")) {
+    irsend.sendNEC(ZERO, 32);
+  } else if(btn_val.equals("RECALL")) {
+    irsend.sendNEC(RECALL, 32);
+  } else if(btn_val.equals("SAT")) {
+    irsend.sendNEC(SAT, 32);
+  } else if(btn_val.equals("REV")) {
+    irsend.sendNEC(REV, 32);
+  } else if(btn_val.equals("FWD")) {
+    irsend.sendNEC(FWD, 32);
+  } else if(btn_val.equals("PREV")) {
+    irsend.sendNEC(PREV, 32);
+  } else if(btn_val.equals("NEXT")) {
+    irsend.sendNEC(NEXT, 32);
+  } else if(btn_val.equals("PLAY")) {
+    irsend.sendNEC(PLAY, 32);
+  } else if(btn_val.equals("PAUSE")) {
+    irsend.sendNEC(PAUSE, 32);
+  } else if(btn_val.equals("STOP")) {
+    irsend.sendNEC(STOP, 32);
+  } else if(btn_val.equals("AUDIO")) {
+    irsend.sendNEC(AUDIO, 32);
+  } else if(btn_val.equals("RED")) {
+    irsend.sendNEC(RED, 32);
+  } else if(btn_val.equals("GREEN")) {
+    irsend.sendNEC(GREEN, 32);
+  } else if(btn_val.equals("YELLOW")) {
+    irsend.sendNEC(YELLOW, 32);
+  } else if(btn_val.equals("BLUE")) {
+    irsend.sendNEC(BLUE, 32);
+  } else {
+    Serial.println("unknown");
+  }
+  delay(500);
+}
+void loop() {
+  while(SerialBt.available()) {
+    incoming = char(SerialBt.read());
+    if(String(incoming) == "\n"){
+        Serial.println(btn);
+        send_ir(btn);
+        btn = "";
+      } else {
+        btn += String(incoming);        
+      }
+    }	
 }
