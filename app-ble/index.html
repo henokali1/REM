@@ -59,6 +59,7 @@
     
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -113,38 +114,19 @@
         <center><h2>Remote</h2></center>
 
     </div>
-        <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#home">Sat</a></li>
-          <li><a data-toggle="tab" href="#menu1">TV</a></li>
-          <li><a data-toggle="tab" href="#menu2">SHORTCUTS</a></li>
-        </ul>
-
-        <div class="tab-content">
-          <div id="home" class="tab-pane fade in active">
-            
-          </div>
-          <div id="menu1" class="tab-pane fade">
-            <h3>TV</h3>
-            <p>
-          </div>
-          <div id="menu2" class="tab-pane fade">
-            <h3>SHORTCUTS</h3>
-          </div>
-        </div>
-
         <center><h3>SAT</h3></center>
             <div style="margin: 1rem;" class="d-flex justify-content-between">
-                <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #d9534f;" onclick="snd_msg(`POWER`)">POWER</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #d9534f;" onclick="snd_msg(`POWER`)"><i class="fa fa-power-off"></i></button>
                 <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`REC`)">REC</button>
-                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`MUTE`)">MUTE</button>
-                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`EPG`)">EPG</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`L_M`)">L/M</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`MUTE`)"><i class="fa fa-volume-off"></i></button>
+            </div>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #857b7a;" onclick="snd_msg(`EPG`)">EPG</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`P_PLUS`)">P+</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`TTX`)">TTX</button>
             </div>
 
-            <div style="margin: 1rem;" class="d-flex justify-content-between">
-                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`EPG`)">EPG</button>
-                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`P_PLUS`)">P+</button>
-                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`TTX`)">TTX</button>
-            </div>
             <div style="margin: 1rem;" class="d-flex justify-content-between">
                 <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`INFO`)">INFO</button>
                 <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`P_MINUS`)">P-</button>
@@ -155,108 +137,57 @@
                 <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`UP`)">^</button>
                 <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`EXIT`)">EXIT</button>
             </div>
-            <div class="row">
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`INFO`)">INFO</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`UP`)">UP</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`EXIT`)">EXIT</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`V_MINUS`)">V_MINUS</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`OK`)">OK</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`V_PLUS`)">V_PLUS</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`DOWN`)">DOWN</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`FAV`)">FAV</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`TV_RADIO`)">TV_RADIO</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`ONE`)">ONE</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`TWO`)">TWO</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`THREE`)">THREE</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`FOUR`)">FOUR</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`FIVE`)">FIVE</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`SIX`)">SIX</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`SEVEN`)">SEVEN</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`EIGHT`)">EIGHT</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`NINE`)">NINE</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`ZERO`)">ZERO</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`RECALL`)">RECALL</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`SAT`)">SAT</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`REV`)">REV</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`FWD`)">FWD</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`PREV`)">PREV</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`NEXT`)">NEXT</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`PLAY`)">PLAY</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`PAUSE`)">PAUSE</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`STOP`)">STOP</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`AUDIO`)">AUDIO</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`RED`)">RED</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`GREEN`)">GREEN</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`YELLOW`)">YELLOW</button>
-              </div>
-              <div class="col-sm-3">
-                <button onclick="snd_msg(`BLUE`)">BLUE</button>
-              </div>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`V_MINUS`)">VOL-</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`OK`)">OK</button>
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`V_PLUS`)">VOL+</button>
             </div>
-    </div>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`FAV`)">FAV</button>
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`DOWN`)">V</button>
+                <button class="p-2"  style="background-color: #857b7a;" onclick="snd_msg(`TV_RADIO`)">TV_RADIO</button>
+            </div>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #857b7a;" onclick="snd_msg(`ONE`)">1</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`TWO`)">2</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`THREE`)">3</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`TV_RADIO`)">TV/RADIO</button>
+            </div>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #857b7a;" onclick="snd_msg(`FOUR`)">4</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`FIVE`)">5</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`SIX`)">6</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`RECALL`)">RECALL</button>
+            </div>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #857b7a;" onclick="snd_msg(`SEVEN`)">7</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`EIGHT`)">8</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`NINE`)">9</button>
+                <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #857b7a;" onclick="snd_msg(`ZERO`)">0</button>
+            </div>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2 btn" style="background-color: #857b7a;" onclick="snd_msg(`REV`)"><i class="fa fa-backward"></i></button>
+                <button class="p-2 btn"  style="background-color: #857b7a;" onclick="snd_msg(`FWD`)"><i class="fa fa-forward"></i></button>
+                <button class="p-2 btn"  style="background-color: #857b7a;" onclick="snd_msg(`PREV`)"><i class="fa fa-step-backward"></i></button>
+                <button class="p-2 btn"  style="background-color: #857b7a;" onclick="snd_msg(`NEXT`)"><i class="fa fa-fast-forward"></i></button>
+            </div>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2 btn" style="background-color: #857b7a;" onclick="snd_msg(`PLAY`)"><i class="fa fa-play"></i></button>
+                <button class="p-2 btn"  style="background-color: #857b7a;" onclick="snd_msg(`PAUSE`)"><i class="fa fa-forward"></i></button>
+                <button class="p-2 btn"  style="background-color: #857b7a;" onclick="snd_msg(`STOP`)"><i class="fa fa-step-backward"></i></button>
+                <button class="p-2 btn"  style="background-color: #857b7a;" onclick="snd_msg(`AUDIO`)"><i class="fa fa-fast-forward"></i></button>
+            </div>
+            <div style="margin: 1rem;" class="d-flex justify-content-between">
+                <button class="p-2 btn" style="background-color: #fd8d83;" onclick="snd_msg(`RED`)"><i class="fa fa-play"></i></button>
+                <button class="p-2 btn"  style="background-color: #80ff66;" onclick="snd_msg(`GREEN`)"><i class="fa fa-forward"></i></button>
+                <button class="p-2 btn"  style="background-color: #f5f269;" onclick="snd_msg(`YELLOW`)"><i class="fa fa-step-backward"></i></button>
+                <button class="p-2 btn"  style="background-color: #665deb;" onclick="snd_msg(`BLUE`)"><i class="fa fa-fast-forward"></i></button>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+
     <script src="assets/js/BluetoothTerminal.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
