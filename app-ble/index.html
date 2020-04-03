@@ -92,25 +92,25 @@
 
     </style>
   </head>
-  <body>
+  <body style="background-color: #625656;">
     <div class="app">
       <div class="toolbar">
-        <div id="device-name" class="name">Terminal</div>
+        <div id="device-name" class="name" style="color: white;">Terminal</div>
 
         <div class="buttons">
           <button id="connect" type="button" aria-label="Connect">
-            <i class="material-icons">bluetooth_connected</i>
+            <i class="material-icons" style="color: white;">bluetooth_connected</i>
           </button>
 
           <button id="disconnect" type="button" aria-label="Disconnect">
-            <i class="material-icons">bluetooth_disabled</i>
+            <i class="material-icons" style="color: white;">bluetooth_disabled</i>
           </button>
         </div>
       </div>
 
       <div id="terminal" style="display:none" class="terminal"></div>
       
-        <center><h3>SAT Remote</h3></center>
+        <center><h3 style="color: white;">SAT Remote</h3></center>
             <div style="margin: 1rem;" class="d-flex justify-content-between">
                 <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #d9534f;" onclick="snd_msg(`POWER`)"><i class="fa fa-power-off"></i></button>
                 <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_msg(`REC`)">REC</button>
