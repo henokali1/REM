@@ -97,6 +97,6 @@ function snd_sq_msg(val){
   for (let i = 0; i < sp.length; i++) {
       setTimeout(function () {
         snd_msg(sp[i]);
-      }, i * 500)
+      }, i * 300)
   }
 }
