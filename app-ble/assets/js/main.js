@@ -91,12 +91,12 @@ function snd_msg(btn_clicked){
   console.log(btn_clicked);
 }
 
-function timeFunction() {
-  setTimeout(function(){ snd_msg('after delay'); }, 500);
-}
 
 function snd_sq_msg(val){
-  send(`ONE`)
-  send(`FOUR`)
-  send(`OK`)
+  sp = val.split(',')
+  for (let i = 0; i < sp.length; i++) {
+      setTimeout(function () {
+          snd_msg(sp[i]);
+      }, i * 500)
+  }
 }

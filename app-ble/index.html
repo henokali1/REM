@@ -118,19 +118,58 @@
         <li class="nav-item">
           <a class="nav-link" id="sat-tab" data-toggle="tab" href="#sat" role="tab" aria-controls="sat" aria-selected="false">SAT-REMOTE</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-        </li>
+
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="shortcuts" role="tabpanel" aria-labelledby="shortcuts-tab">
-          <center><button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #d9534f;" onclick="snd_msg(`POWER`)"><i class="fa fa-power-off"></i></button></center>
           <div style="margin: 1rem;" class="d-flex justify-content-between">
-              <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #b4b4b4;" onclick="snd_sq_msg(`POWER`)">MBC-1</button>
-              <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`REC`)">MBC-2</button>
-              <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`L_M`)">ETV</button>
-              <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`MUTE`)">EBS</button>
+            <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #d9534f;" onclick="snd_msg(`POWER`)"><i class="fa fa-power-off"></i></button>
+            <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_msg(`MUTE`)"><i class="fa fa-volume-off"></i></button>  
           </div>
+        
+        <center><button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_msg(`UP`)">^</button></center>
+          <div style="margin: 1rem;" class="d-flex justify-content-between">
+            <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_msg(`V_MINUS`)">VOL -</button>
+            <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_msg(`OK`)">OK</button>
+            <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_msg(`V_PLUS`)">VOL +</button>
+          </div>
+          
+          <center><button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_msg(`DOWN`)">V</button></center>
+          
+          <div style="margin: 1rem;" class="d-flex justify-content-between">
+              <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #b4b4b4;" onclick="snd_sq_msg(`1,5,OK`)">ETV</button>
+              <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`1,6,OK`)">EBS</button>
+              <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`1,8,OK`)">FANA</button>
+              <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`1,7,OK`)">JTV</button>
+          </div>
+
+          <div style="margin: 1rem;" class="d-flex justify-content-between">
+            <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #b4b4b4;" onclick="snd_sq_msg(`1,OK`)">CN</button>
+            <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`2,OK`)">MBC-2</button>
+            <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`3,OK`)">MBC-3</button>
+            <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`5,OK`)">MBC-ACTION</button>
+          </div>
+
+        <div style="margin: 1rem;" class="d-flex justify-content-between">
+          <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #b4b4b4;" onclick="snd_sq_msg(`6,OK`)">NAT GEO</button>
+          <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`9,OK`)">BBC</button>
+          <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`1,0,OK`)">CNN</button>
+          <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`1,1,OK`)">MAJID</button>
+        </div>
+
+        <div style="margin: 1rem;" class="d-flex justify-content-between">
+          <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #b4b4b4;" onclick="snd_sq_msg(`6,OK`)">NAT GEO</button>
+          <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`9,OK`)">BBC</button>
+          <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`1,0,OK`)">CNN</button>
+          <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`1,1,OK`)">MAJID</button>
+        </div>
+
+        <div style="margin: 1rem;" class="d-flex justify-content-between">
+          <button class="p-2 btn btn-dark btn-circle btn-xl" style="background-color: #b4b4b4;" onclick="snd_sq_msg(`7,OK`)">MICKEY</button>
+          <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`8,OK`)">BABY CH</button>
+          <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #b4b4b4;" onclick="snd_sq_msg(`1,4,OK`)">ETHIO LIJOCH</button>
+        </div>
+
         </div>
         <div class="tab-pane fade" id="sat" role="tabpanel" aria-labelledby="sat-tab">
           <center><h3 style="color: white;">SAT Remote</h3></center>
@@ -203,7 +242,6 @@
                   <button class="p-2 btn btn-dark btn-circle btn-xl"  style="background-color: #665deb;" onclick="snd_msg(`BLUE`)"><i class="fa fa-fast-forward"></i></button>
               </div>
         </div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
       </div>
 
 
