@@ -96,7 +96,7 @@ function snd_sq_msg(val){
   sp = val.split(',')
   for (let i = 0; i < sp.length; i++) {
       setTimeout(function () {
-          snd_msg(sp[i]);
+        send(sp[i]);
       }, i * 500)
   }
 }
