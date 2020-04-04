@@ -88,4 +88,15 @@ function off_clicked(){
 function snd_msg(btn_clicked){
   window.navigator.vibrate([200, 100, 200]);
   send(btn_clicked);
+  console.log(btn_clicked);
+}
+
+function timeFunction() {
+  setTimeout(function(){ snd_msg('after delay'); }, 500);
+}
+
+function snd_sq_msg(val){
+  send(`ONE`)
+  send(`FOUR`)
+  send(`OK`)
 }
